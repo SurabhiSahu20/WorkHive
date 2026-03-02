@@ -1,4 +1,4 @@
-# 🚀 SynerySphere - Team Collaboration Platform
+# 🚀 WorkHive - Team Collaboration Platform
 
 > **Empowering teams to collaborate seamlessly. Real-time communication, intelligent task management, and unified workspace for distributed teams.**
 
