@@ -1,311 +1,149 @@
-import Pattern from '../Ui/Pattern';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
-import homeImage from '../assets/home_i.png';
-import logo from '../assets/Logo.png';
+import { motion } from 'framer-motion';
+// import homeImage from '../assets/home_i.png';
+// import logo from '../assets/Logo.png';
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <HomeContainer>
-      <Pattern />
-      <HomeContent>
-        <HeroSection>
-          <HeroText>
-            <AnimatedLogo src={logo} alt="Task Bridge Logo" className="logo" />
-            <AnimatedTitle>Welcome to Task Bridge</AnimatedTitle>
-            <AnimatedSubtitle>Your Ultimate Platform for Task Management and Team Collaboration</AnimatedSubtitle>
-            <ButtonGroup>
-              <JoinTeamButton onClick={() => navigate('/login')}>
-                <span className="icon">👥</span> Join Your Team
-              </JoinTeamButton>
-              <CreateTeamButton onClick={() => navigate('/signup')}>
-                <span className="icon">⊕</span> Create Team
-              </CreateTeamButton>
-            </ButtonGroup>
-          </HeroText>
-          <HeroImage>
-            <img src={homeImage} alt="Team Collaboration" />
-          </HeroImage>
-        </HeroSection>
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="relative max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Logo placeholder - replace src with your logo variable */}
+            <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center text-white text-3xl mb-8 shadow-lg animate-bounce duration-[3000ms]">
+              TB
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-tight text-slate-900 mb-6">
+              Welcome to <br />
+              <span className="text-indigo-600">Task Bridge</span>
+            </h1>
+            
+            <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg">
+              The ultimate platform for task management and seamless team collaboration. Bridge the gap between ideas and execution.
+            </p>
 
-        <AboutSection>
-          <SectionTitle>What is Task Bridge?</SectionTitle>
-          <SectionText>
-            Task Bridge is an innovative platform designed to streamline task management and facilitate seamless team collaboration. It provides individuals and teams with a comprehensive set of tools to manage projects, organize tasks, and communicate effectively, all in one place.
-          </SectionText>
-        </AboutSection>
+            <div className="flex flex-wrap gap-4">
+              <button 
+                onClick={() => navigate('/login')}
+                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl transition-all shadow-xl shadow-indigo-200 flex items-center gap-2"
+              >
+                <span>👥</span> Join Your Team
+              </button>
+              <button 
+                onClick={() => navigate('/signup')}
+                className="px-8 py-4 bg-white border-2 border-slate-200 hover:border-indigo-300 text-slate-700 font-bold rounded-2xl transition-all"
+              >
+                <span>⊕</span> Create Team
+              </button>
+            </div>
+          </motion.div>
 
-        <FeaturesSection>
-          <SectionTitle>Key Features</SectionTitle>
-          <FeaturesGrid>
-            <FeatureCard>
-              <FeatureIcon>📋</FeatureIcon>
-              <FeatureTitle>Task Management</FeatureTitle>
-              <FeatureText>Easily create, assign, and track tasks with intuitive tools.</FeatureText>
-            </FeatureCard>
-            <FeatureCard>
-              <FeatureIcon>🤝</FeatureIcon>
-              <FeatureTitle>Team Collaboration</FeatureTitle>
-              <FeatureText>Work together in real-time with your team members.</FeatureText>
-            </FeatureCard>
-            <FeatureCard>
-              <FeatureIcon>📂</FeatureIcon>
-              <FeatureTitle>Document Sharing</FeatureTitle>
-              <FeatureText>Upload, share, and manage files effortlessly.</FeatureText>
-            </FeatureCard>
-          </FeaturesGrid>
-        </FeaturesSection>
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="absolute -inset-4 bg-indigo-100/50 rounded-[2rem] blur-2xl -z-10"></div>
+            {/* Replace with your homeImage variable */}
+            <div className="bg-white p-4 rounded-[2rem] shadow-2xl border border-slate-100">
+               <div className="aspect-video bg-slate-200 rounded-xl flex items-center justify-center text-slate-400">
+                 [Illustration: Team Productivity]
+               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-        <TestimonialsSection>
-          <SectionTitle>What Our Users Say</SectionTitle>
-          <TestimonialsGrid>
-            <TestimonialCard>
-              <TestimonialText>"Task Bridge has transformed the way our team works. Highly recommended!"</TestimonialText>
-              <TestimonialAuthor>- Priy Mavani</TestimonialAuthor>
-            </TestimonialCard>
-            <TestimonialCard>
-              <TestimonialText>"The task management tools are incredibly intuitive and easy to use."</TestimonialText>
-              <TestimonialAuthor>- Krish Shyara</TestimonialAuthor>
-            </TestimonialCard>
-          </TestimonialsGrid>
-        </TestimonialsSection>
+      {/* --- ABOUT SECTION --- */}
+      <section className="bg-white py-24 border-y border-slate-100">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-6 text-slate-900">What is Task Bridge?</h2>
+          <p className="text-lg text-slate-600 leading-relaxed italic">
+            "An innovative platform designed to streamline task management and facilitate seamless team collaboration. We provide a comprehensive set of tools to organize projects and communicate effectively, all in one place."
+          </p>
+        </div>
+      </section>
 
-        <CtaSection>
-          <SectionTitle>Ready to Get Started?</SectionTitle>
-          <SectionText>Join Task Bridge today and take your team collaboration to the next level.</SectionText>
-          <ButtonGroup>
-            <JoinTeamButton onClick={() => navigate('/login')}>
-              <span className="icon">👥</span> Join Your Team
-            </JoinTeamButton>
-            <CreateTeamButton onClick={() => navigate('/signup')}>
-              <span className="icon">⊕</span> Create Team
-            </CreateTeamButton>
-          </ButtonGroup>
-        </CtaSection>
-      </HomeContent>
-    </HomeContainer>
+      {/* --- FEATURES SECTION --- */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-extrabold text-slate-900">Built for Peak Performance</h2>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            { icon: "📋", title: "Task Management", desc: "Easily create, assign, and track tasks with intuitive tools." },
+            { icon: "🤝", title: "Team Collaboration", desc: "Work together in real-time with your team members." },
+            { icon: "📂", title: "Document Sharing", desc: "Upload, share, and manage files effortlessly." }
+          ].map((feature, idx) => (
+            <motion.div 
+              key={idx}
+              whileHover={{ y: -10 }}
+              className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl transition-all"
+            >
+              <div className="text-4xl mb-6">{feature.icon}</div>
+              <h3 className="text-xl font-bold mb-3 text-slate-900">{feature.title}</h3>
+              <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- TESTIMONIALS --- */}
+      <section className="bg-indigo-50/50 py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-16">Loved by Teams</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-indigo-100 relative">
+              <span className="absolute top-8 right-8 text-indigo-100 text-6xl font-serif">“</span>
+              <p className="text-lg text-slate-700 mb-6 italic relative z-10">
+                "Task Bridge has transformed the way our team works. Highly recommended!"
+              </p>
+              <p className="font-bold text-indigo-600">— Priy Mavani</p>
+            </div>
+            <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-indigo-100 relative">
+              <span className="absolute top-8 right-8 text-indigo-100 text-6xl font-serif">“</span>
+              <p className="text-lg text-slate-700 mb-6 italic relative z-10">
+                "The task management tools are incredibly intuitive and easy to use."
+              </p>
+              <p className="font-bold text-indigo-600">— Krish Shyara</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- FINAL CTA --- */}
+      <section className="py-24 text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-4xl font-black mb-6">Ready to Get Started?</h2>
+          <p className="text-lg text-slate-600 mb-10">Join Task Bridge today and take your team collaboration to the next level.</p>
+          <div className="flex justify-center gap-4">
+             <button 
+                onClick={() => navigate('/signup')}
+                className="px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl transition-all shadow-xl shadow-indigo-100"
+              >
+                Create Free Account
+              </button>
+          </div>
+        </div>
+      </section>
+      
+      <footer className="py-12 border-t border-slate-200 text-center text-slate-400 text-sm">
+        &copy; 2026 Task Bridge Platform. Built for CSE Excellence.
+      </footer>
+    </div>
   );
 };
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const float = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-`;
-
-const HomeContainer = styled.div`
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-`;
-
-const HomeContent = styled.div`
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-`;
-
-const HeroSection = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4rem 0;
-`;
-
-const HeroText = styled.div`
-  max-width: 600px;
-`;
-
-const AnimatedLogo = styled.img`
-  margin-top: -80px;
-  width: 80px;
-  height: auto;
-  margin-bottom: 1rem;
-  animation: ${float} 3s ease-in-out infinite;
-`;
-
-const AnimatedTitle = styled.h1`
-  font-size: 3rem;
-  color: rgb(101, 131, 252);
-  margin-bottom: 1rem;
-  animation: ${fadeIn} 1s ease-in-out;
-`;
-
-const AnimatedSubtitle = styled.h2`
-  font-size: 1.5rem;
-  color: #555;
-  margin-bottom: 2rem;
-  animation: ${fadeIn} 1.5s ease-in-out;
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  justify-content: center;
-`;
-
-const JoinTeamButton = styled.button`
-  padding: 0.8rem 1.5rem;
-  background: rgb(137, 159, 246);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(184, 198, 255, 0.3);
-  }
-`;
-
-const CreateTeamButton = styled.button`
-  padding: 0.8rem 1.5rem;
-  background: #E3D2FC;
-  color: rgb(39, 45, 71);
-  border: 2px solid #b8c6ff;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(184, 198, 255, 0.3);
-  }
-`;
-
-const HeroImage = styled.div`
-  img {
-    max-width: 500px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: ${float} 4s ease-in-out infinite;
-  }
-`;
-
-const AboutSection = styled.section`
-  padding: 4rem 0;
-  text-align: center;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 2rem;
-  color: rgb(120, 130, 243);
-  margin-bottom: 1rem;
-  animation: ${fadeIn} 1s ease-in-out;
-`;
-
-const SectionText = styled.p`
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 800px;
-  margin: 0 auto;
-  animation: ${fadeIn} 1.5s ease-in-out;
-`;
-
-const FeaturesSection = styled.section`
-  padding: 4rem 0;
-  text-align: center;
-`;
-
-const FeaturesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-`;
-
-const FeatureCard = styled.div`
-  background: rgb(255, 255, 255);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(184, 198, 255, 0.2);
-  }
-`;
-
-const FeatureIcon = styled.div`
-  font-size: 2rem;
-  margin-bottom: 1rem;
-`;
-
-const FeatureTitle = styled.h3`
-  font-size: 1.5rem;
-  color: #b8c6ff;
-  margin-bottom: 1rem;
-`;
-
-const FeatureText = styled.p`
-  font-size: 1rem;
-  color: #555;
-`;
-
-const TestimonialsSection = styled.section`
-  padding: 4rem 0;
-  text-align: center;
-`;
-
-const TestimonialsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-`;
-
-const TestimonialCard = styled.div`
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(184, 198, 255, 0.2);
-  }
-`;
-
-const TestimonialText = styled.p`
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-`;
-
-const TestimonialAuthor = styled.p`
-  font-weight: bold;
-  color: #b8c6ff;
-`;
-
-const CtaSection = styled.section`
-  padding: 4rem 0;
-  text-align: center;
-`;
 
 export default Home;
