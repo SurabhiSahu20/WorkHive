@@ -1,11 +1,11 @@
-# 🚀 SynerySphere - Team Collaboration Platform
+# 🚀 WorkHive - Team Collaboration Platform
 
 > **Empowering teams to collaborate seamlessly. Real-time communication, intelligent task management, and unified workspace for distributed teams.**
 
 ---
 ## 📋 Project Overview
 
-**SynerySphere** is a comprehensive **Full-Stack Team Collaboration Platform** designed to streamline communication, task management, and team coordination. Built with modern web technologies, it provides a unified workspace where distributed teams can collaborate in real-time with features like instant messaging, task tracking, file sharing, and collaborative whiteboarding.
+**WorkHive** is a comprehensive **Full-Stack Team Collaboration Platform** designed to streamline communication, task management, and team coordination. Built with modern web technologies, it provides a unified workspace where distributed teams can collaborate in real-time with features like instant messaging, task tracking, file sharing, and collaborative whiteboarding.
 
 ### What Makes It Special?
 - ✅ **Real-time Communication** with Socket.io
