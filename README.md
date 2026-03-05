@@ -28,7 +28,7 @@ In today's remote-first world, teams struggle with:
 - **Poor Visibility** → Managers can't see real-time project status
 - **Inefficient Workflows** → Slow feedback loops and bottlenecks
 
-**SynerySphere solves these** by providing a **single unified platform** where teams can:
+**WorkHive solves these** by providing a **single unified platform** where teams can:
 - Communicate in real-time without context-switching
 - Manage tasks with clear priorities and deadlines
 - Track progress with visual Kanban boards
